@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Filter</mat-toolbar>
+    <form>
+        <div class="example-container" fxLayout="row">
+            <div>
+                 <mat-form-field>
+                    <input matInput placeholder="Location">
+                </mat-form-field>
+            </div>
+            <div fxLayoutAlign="space-between none">
+                <button mat-icon-button>
+                     <mat-icon aria-label="Search location">search</mat-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button class="button"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><h1>{{title}}</h1></span>
+    </mat-toolbar>
+
+    <app-carpark></app-carpark>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+{
+  "/api/CarParkAvail": {
+    "target": "http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/CarParkAvail": ""
+  },
+    "changeOrigin": true
+  }
+
+}
