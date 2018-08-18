@@ -1,3 +1,4 @@
+<div fxLayout="column" fxFill class="mat-typography">
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
@@ -7,20 +8,9 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Filter</mat-toolbar>
-    <form>
-        <div class="example-container" fxLayout="row">
-            <div>
-                 <mat-form-field>
-                    <input matInput placeholder="Location">
-                </mat-form-field>
-            </div>
-            <div fxLayoutAlign="space-between none">
-                <button mat-icon-button>
-                     <mat-icon aria-label="Search location">search</mat-icon>
-                </button>
-            </div>
-        </div>
-    </form>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <app-carpark-search></app-carpark-search>
+    </div>
 
   </mat-sidenav>
   <mat-sidenav-content>
@@ -33,10 +23,11 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><h1>{{title}}</h1></span>
+     <span><h2>{{title}}</h2></span>
     </mat-toolbar>
 
     <app-carpark></app-carpark>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div>

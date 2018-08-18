@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-my-nav',
-  templateUrl: './my-nav.component.html',
-  styleUrls: ['./my-nav.component.css']
+  selector: 'app-carpark-nav',
+  templateUrl: './carpark-nav.component.html',
+  styleUrls: ['./carpark-nav.component.css']
 })
-export class MyNavComponent {
+export class CarparkNavComponent {
 
   private title = "SG Car Park";
 
@@ -18,5 +18,6 @@ export class MyNavComponent {
     );
     
   constructor(private breakpointObserver: BreakpointObserver) {}
+
   
   }

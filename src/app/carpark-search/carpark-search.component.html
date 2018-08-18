@@ -1,0 +1,21 @@
+
+
+<form >
+  <mat-form-field>
+         <mat-icon matPrefix>search</mat-icon>
+         <input #search matInput [formControl]="iSearch" placeholder="search location" />
+         <mat-icon *ngIf="search.value" matSuffix (click)="clearSearch()">close</mat-icon>
+  </mat-form-field>
+</form>
+
+<mat-nav-list role="list">
+    <mat-list-item role="listitem" *ngFor="let carpark of carpark$ | async" (click)="zoomIn(carpark.Development)">
+        <div class="mat-body-1">
+            <span title="{{carpark.Development | titlecase}}">
+                {{ carpark.Development | slice:0:25 | titlecase }}
+            </span>
+            <span *ngIf="carpark.Development.length >= 25">...</span>
+        </div>
+    </mat-list-item>
+</mat-nav-list>
+
