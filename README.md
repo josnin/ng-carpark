@@ -1,3 +1,15 @@
+
+# SG CarPark 
+
+### Display Car Park in Map
+![alt text](https://user-images.githubusercontent.com/3206118/43902395-9382c8c4-9c1c-11e8-98bd-7c7d7a54342b.png)
+
+# License
+
+Data provided by [LTA](https://www.lta.gov.sg) and partially by [OneMap](https://onemap.sg).
+
+MIT
+
 # NgCarpark
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
