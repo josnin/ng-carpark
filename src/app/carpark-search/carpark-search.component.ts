@@ -20,9 +20,13 @@ import { Value } from '../carpark';
         </form>
 
         <mat-nav-list role="list">
-            <mat-list-item role="listitem" *ngFor="let carpark of carpark$ | async" (click)="zoomIn(carpark.Development)">
+            <mat-list-item role="listitem" (click)="zoomInCurrentLocation()">
+                <div class="mat-body-1"><span>Current Location</span></div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" title="{{carpark.Development | titlecase}}" *ngFor="let carpark of carpark$ | async" (click)="zoomIn(carpark.Development)">
                 <div class="mat-body-1">
-                    <span title="{{carpark.Development | titlecase}}">
+                    <span>
                         {{ carpark.Development | slice:0:25 | titlecase }}
                     </span>
                     <span *ngIf="carpark.Development.length >= 25">...</span>
@@ -68,6 +72,21 @@ export class CarparkSearchComponent implements OnInit {
 
   }
 
-
+  zoomInCurrentLocation() {
+     if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(
+             (position) => {
+             
+                sessionStorage.setItem('lat', position.coords.latitude.toString() );
+                sessionStorage.setItem('long', position.coords.longitude.toString() );
+                this.cp.onMapReady(this.mapObj);
+             }, (error) => {
+                 console.error(`Geolocation error: ${error}`);    
+             }
+         );
+     } else {
+         console.error('Geolocation not supported in this browser');
+     }
+  }       
 
 }
