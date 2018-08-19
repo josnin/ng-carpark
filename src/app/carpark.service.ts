@@ -26,7 +26,7 @@ export class CarparkService {
       let route = polyline([[parseFloat(sessionStorage.getItem('lat')), parseFloat(sessionStorage.getItem('long'))]]);
       map.fitBounds(route.getBounds(), {
         padding: point(24, 24),
-        maxZoom: 18,
+        maxZoom: 19,
         animate: true
       });
    }
@@ -68,15 +68,15 @@ export class CarparkService {
                     let omOpt = {};
                     
                     // Define our base layers so we can reference them multiple times
-                    let om = tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
+                    let om = tileLayer('https://maps-{s}.onemap.sg/v3/Grey/{z}/{x}/{y}.png', {
                         detectRetina: true,
                         attribution: '<img src="https://docs.onemap.sg/maps/images/oneMap64-01.png" style="height:20px;width:20px;"/> Map Data &copy; <a href="https://onemap.sg">OneMap Singapore</a> contributions'
                     });
 
                     for ( let r of res.value.filter(res1 => res1.AvailableLots != 0) ) {
 
-                           let cStroke = "#4ee44e"
-                           let cFill = "#90ee90"
+                           let cStroke = "#3949ab"
+                           let cFill = "#c5cae9"
 
                            //if (r.AvailableLots == 0) { //red
                            //     cStroke = "#e44e4e"
