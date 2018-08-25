@@ -18,8 +18,8 @@ import { Map } from 'leaflet';
 
 export class CarparkComponent implements OnInit {
 
-    private carpark: any;
-    private options: any;
+    public carpark: any;
+    public options: any;
     mapObj: Map;
 
   constructor(private cp: CarparkService ) { }

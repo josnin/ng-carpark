@@ -38,7 +38,7 @@ import { Value } from '../carpark';
 export class CarparkSearchComponent implements OnInit {
 
   private sResults: string[] = [];
-  private iSearch: FormControl = new FormControl();
+  public iSearch: FormControl = new FormControl();
   carpark$: Observable<Value[]>;
   mapObj: Map;
 

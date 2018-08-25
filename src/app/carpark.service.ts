@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class CarparkService {
 
-  private carparkUrl = 'api/CarParkAvail';
+  //private carparkUrl = 'api/CarParkAvail';
+  private carparkUrl = ""
 
   shareMapObjSrc = new BehaviorSubject(null);
   shareMapObj = this.shareMapObjSrc.asObservable();
@@ -55,7 +56,8 @@ export class CarparkService {
 
   getCarPark(): Observable<any> {
     const url = `${this.carparkUrl}`
-    return this.http.get<RootObject>(url, httpOptions)
+    //return this.http.get<RootObject>(url, httpOptions)
+    return this.http.get(url)
   }
 
   /* build map obj */

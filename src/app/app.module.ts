@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CarparkService } from './carpark.service';
 import { CarparkNavComponent } from './carpark-nav/carpark-nav.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -34,7 +36,8 @@ import { CarparkNavComponent } from './carpark-nav/carpark-nav.component';
     FormsModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CarparkService],
   bootstrap: [AppComponent]
